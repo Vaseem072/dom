@@ -1,0 +1,133 @@
+/* Container to align input and button */
+* {
+    margin: 0;
+    padding: 0;
+}
+#footer{
+width: 98vw;
+height: 40vh;
+border: 1px solid black;
+}
+.pagediv{
+    width: 97vw;
+    height: 5vh;
+    border: 2px solid black;
+}
+.videodiv{
+      width: 97vw;
+    height: 50vh;
+    border: 3px solid black;
+}
+
+.nav {
+    /* position:fixed;
+    top: 1rem;
+  right: 1rem; */
+    width: 97vw;
+    height: 8vh;
+    /* border: 2px solid red; */
+    display: flex;
+    column-gap: 30px;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+}
+
+#container {
+    width: auto;
+    height: auto;
+    gap: 2px;
+    padding: 5px 0 0 1px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    /* align-items: flex-start; */
+    justify-content: center;
+    flex-wrap: wrap;
+    /* align-content: center; */
+    /* background-color: rgba(203, 223, 240, 0.467); */
+
+
+}
+
+.moviediv {
+    width: 280px;
+    height: 500px;
+   margin: 1px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+text-align: center;
+    /* box-shadow: 10px 10px 10px rgba(20, 134, 234, 0.581); */
+       box-shadow:  1px 1px 5px rgba(0, 5, 10, 0.909);
+
+    /* border:2px solid rgba(56, 121, 226, 0.711); */
+    cursor: pointer;
+
+}
+.imagediv {
+    width: 180px;
+    height: 250px;
+   /* margin: 1px; */
+   display: flex;
+   border: 1px solid black;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+text-align: center;
+    cursor: pointer;
+
+}
+.imagediv>img {
+    width: 180px;
+    height: 250px;
+}
+.moviediv>img {
+    width: 280px;
+    height: 400px;
+}
+/* .imagediv>img:hover {
+   width: 180px;
+    height: 250px;
+} */
+
+.moviediv>img:hover {
+    /* width:290px; */
+    height: 420px;
+}
+
+/* Modern search input */
+.search-input {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.3);
+    transform: scale(1.02);
+}
+
+/* Sleek search button */
+.search-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background: linear-gradient(to right, #0078d4, #00a3e0);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.search-button:hover {
+    background: linear-gradient(to right, #005fa3, #008abf);
+    transform: scale(1.05);
+}
