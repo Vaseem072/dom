@@ -3,6 +3,10 @@
     margin: 0;
     padding: 0;
 }
+body{
+    /* background-color: rgba(19, 19, 19, 0.88); */
+    background: linear-gradient(#005fa3)
+}
 #footer{
 width: 98vw;
 height: 40vh;
@@ -30,8 +34,10 @@ border: 1px solid black;
     height: 8vh;
     /* border: 2px solid red; */
     display: flex;
-    column-gap: 30px;
+    column-gap: 20px;
+    flex-wrap: wrap;
     justify-content: flex-end;
+    /* align-items: center; */
     align-items: center;
     align-content: center;
     flex-wrap: nowrap;
@@ -49,7 +55,7 @@ border: 1px solid black;
     justify-content: center;
     flex-wrap: wrap;
     /* align-content: center; */
-    /* background-color: rgba(203, 223, 240, 0.467); */
+    background-color: rgba(11, 11, 11, 0.653);
 
 
 }
@@ -70,11 +76,11 @@ text-align: center;
 
 }
 .imagediv {
-    width: 180px;
+    width: 200px;
     height: 250px;
    /* margin: 1px; */
    display: flex;
-   /* border: 1px solid black; */
+   /* border: 2px solid yellow; */
    flex-direction: column;
    justify-content: center;
    align-items: center;
@@ -83,17 +89,23 @@ text-align: center;
 
 }
 .imagediv>img {
-    width: 180px;
+    width: 200px;
     height: 250px;
 }
 .moviediv>img {
     width: 280px;
     height: 400px;
+    
 }
-/* .imagediv>img:hover {
-   width: 180px;
-    height: 250px;
-} */
+
+.moviediv>h2,p {
+    color:white;
+}
+.imagediv>img:hover {
+   /* width: 180px;
+    height: 250px; */
+  
+}
 
 .moviediv>img:hover {
     /* width:290px; */

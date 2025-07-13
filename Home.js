@@ -1,4 +1,4 @@
-
+const homebtn=document.getElementById('homebtn').addEventListener("click",fetchLatestTrending)
 const mdiv=document.getElementById('container')
 const moviename=document.getElementById("movieName");
 const button=document.getElementById("btn");
