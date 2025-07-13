@@ -1,3 +1,4 @@
+
 const mdiv=document.getElementById('container')
 const moviename=document.getElementById("movieName");
 const button=document.getElementById("btn");
@@ -11,13 +12,17 @@ const trendingbtn=document.getElementById('trendingAll')
 trendingbtn.addEventListener("click",fetchLatestTrending)
 
 function fetchData(){
+  if(moviename.value){
     const url=`https://api.themoviedb.org/3/search/multi?adult=true&query=${moviename.value}&page=1&api_key=c5a20c861acf7bb8d9e987dcc7f1b558`
     fetch(url)
     .then((res)=>res.json())
     .then(data=>{  console.clear()
    displayData(data)
 })
-    .catch(error=>console.log(error))
+    .catch(error=>{console.log(error)})
+}else{
+  fetchLatestTrending();
+}
 }
 function fetchLatestMovies(){
     mdiv.textContent=" ";
@@ -27,7 +32,7 @@ function fetchLatestMovies(){
     .then(data=>{console.clear()
    displayData(data)
 })
-    .catch(error=>console.log(error))
+    .catch(error=>{console.log(error)})
 };
 function fetchLatestTrending(){
     mdiv.textContent=" "
@@ -37,7 +42,7 @@ function fetchLatestTrending(){
     .then(data=>{//console.clear()
    displayData(data)
 })
-    .catch(error=>console.log(error))
+    .catch(error=>{console.log(error)})
 };
 function fetchLatestSeries(){
      mdiv.textContent=" "
@@ -47,33 +52,11 @@ function fetchLatestSeries(){
     .then(data=>{ console.clear()
    displayData(data)
 })
-    .catch(error=>console.log(error))
+    .catch(error=>{console.log(error)})
 };
 setTimeout(()=>{
 fetchLatestTrending();
-},1)
-
-// function displayTvData(data){
-//     mdiv.textContent=" ";
-//     data.results.forEach(m => {
-//         const div=document.createElement('div')
-//         div.classList.add("moviediv")
-//            const h1=document.createElement("h2");
-//            const p=document.createElement("p");
-//         const movieImage=document.createElement("img");
-//          console.log(m.id,m.name,m.original_name,m.first_air_date)
-//        h1.textContent=m.name;
-//        p.textContent=m.first_air_date;
-//        movieImage.src= `https://image.tmdb.org/t/p/w780${m.poster_path}`
-//    div.addEventListener("click",(e)=>{
-//     changeImage(e,m.id)
-//    })
-//     // movieImage.style.width="100vw"
-//     //  movieImage.style.width="280px"
-//     div.append(movieImage,h1,p);
-//     mdiv.append(div)
-//     }); 
-// }
+},200)
 function displayData(data){
     mdiv.textContent=" ";
     const pagediv=document.createElement('div');
@@ -95,7 +78,6 @@ function displayData(data){
          movieImage.addEventListener("mousemove",(e)=>{changeImageTv(e,m.id)})
          div.addEventListener('click',(e)=>{changeImagesTv(e,m.id)})
    div.append(movieImage,h1,p);
-      
      mdiv.append(div)
    
          }else if(m.title){
@@ -120,7 +102,24 @@ function changeImagesMovie(e,id){
   mdiv.textContent=""
   const videodiv=document.createElement('div')
   videodiv.classList.add('videodiv')
-  
+  const videourl = `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US&api_key=c5a20c861acf7bb8d9e987dcc7f1b558`;
+ fetch(videourl).then((res)=>res.json()).then((data)=>{
+
+  data.results.forEach((video)=>{
+    const iFrame=document.createElement("iframe");
+    iFrame.src=`https://www.youtube.com/embed/${video.key}`
+    iFrame.title=video.name
+    iFrame.width="400"
+    iFrame.height="320"
+   iFrame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media";
+    iFrame.allowFullscreen=true
+    iFrame.loading="lazy";
+    // iFrame.referrerPolicy="no-referrer-when-downgrade";
+    videodiv.append(iFrame)
+  })
+
+}).catch((err)=>{console.log(err)})
+
  const url=`https://api.themoviedb.org/3/movie/${id}/images?api_key=c5a20c861acf7bb8d9e987dcc7f1b558`
   fetch(url)
     .then((res)=>res.json())
@@ -134,9 +133,10 @@ function changeImagesMovie(e,id){
         movieImage.src= `https://image.tmdb.org/t/p/w780${imagePath}`
          div.append(movieImage);
          mdiv.append(div);
-         mdiv.appendChild(videodiv)
+          mdiv.append(videodiv);
       }
-   ).catch(error=>console.log(error))
+      
+   ).catch(error=>{console.log(error)})
     }
   
   )
@@ -147,6 +147,24 @@ function changeImagesTv(e,id){
   mdiv.textContent=""
     const videodiv=document.createElement('div')
   videodiv.classList.add('videodiv')
+  const videourl = `https://api.themoviedb.org/3/tv/${id}/videos?language=en-US&api_key=c5a20c861acf7bb8d9e987dcc7f1b558`;
+ fetch(videourl).then((res)=>res.json()).then((data)=>{
+
+  data.results.forEach((video)=>{
+    const iFrame=document.createElement("iframe");
+    iFrame.src=`https://www.youtube.com/embed/${video.key}`
+    iFrame.title=video.name
+    iFrame.width="400"
+    iFrame.height="320"
+   iFrame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media";
+    iFrame.allowFullscreen=true
+    iFrame.loading="lazy";
+    // iFrame.referrerPolicy="no-referrer-when-downgrade";
+    videodiv.append(iFrame)
+  })
+
+}).catch((err)=>{console.log(err)})
+
  const url=`https://api.themoviedb.org/3/tv/${id}/images?api_key=c5a20c861acf7bb8d9e987dcc7f1b558`
   fetch(url)
     .then((res)=>res.json())
@@ -159,8 +177,8 @@ function changeImagesTv(e,id){
         movieImage.src= `https://image.tmdb.org/t/p/w780${imagePath}`
          div.append(movieImage);
          mdiv.append(div)
-          mdiv.append(videodiv)
-      }).catch(error=>console.log(error))
+           mdiv.append(videodiv)
+      }).catch(error=>{console.log(error)})
     }
   
   )
@@ -238,7 +256,7 @@ async function fetchGenreMap(id) {
     console.log('Error fetching genre map:', error);
   }
 }
-fetchGenreMap();
+// fetchGenreMap();
 // let id=550  //start with 550
 
 // const inid=setTimeout(()=>{
@@ -248,7 +266,7 @@ fetchGenreMap();
 //     if(id==751100){
 //     clear()
 //     }
-//      id++;
+//      id++;d
    
 // },1000)
 
