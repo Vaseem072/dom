@@ -124,9 +124,10 @@ function changeImagesMovie(e,id){
   fetch(url)
     .then((res)=>res.json())
     .then(data=>{ 
-     
-      data.posters.forEach((poster)=>{
-        const div=document.createElement('div')
+      const len= data.posters.length;
+      for(let i=0;i<10;i++){
+        const poster=data.posters[i]
+          const div=document.createElement('div')
         div.classList.add("imagediv")
           const movieImage=document.createElement("img");
           const imagePath=  poster.file_path;
@@ -134,13 +135,11 @@ function changeImagesMovie(e,id){
          div.append(movieImage);
          mdiv.append(div);
           mdiv.append(videodiv);
+
       }
+}
       
    ).catch(error=>{console.log(error)})
-    }
-  
-  )
-  
 
 }
 function changeImagesTv(e,id){
@@ -169,8 +168,10 @@ function changeImagesTv(e,id){
   fetch(url)
     .then((res)=>res.json())
     .then(data=>{ 
-      data.backdrops.forEach((poster)=>{
-        const div=document.createElement('div')
+     const len= data.backdrops.length;
+         for(let i=0;i<10;i++){
+          const poster=data.backdrops[i];
+          const div=document.createElement('div')
         div.classList.add("imagediv")
           const movieImage=document.createElement("img");
           const imagePath=  poster.file_path;
@@ -178,11 +179,9 @@ function changeImagesTv(e,id){
          div.append(movieImage);
          mdiv.append(div)
            mdiv.append(videodiv)
-      }).catch(error=>{console.log(error)})
-    }
-  
-  )
- 
+         }
+}
+    ).catch(error=>{console.log(error)})
 }
 let i=0
 function changeImage(e,id){
