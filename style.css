@@ -32,7 +32,7 @@ border: 1px solid black;
   right: 1rem; */
     width: 97vw;
     height: 8vh;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     column-gap: 20px;
     /* flex-wrap: wrap; */
@@ -142,7 +142,7 @@ text-align: center;
 }
 
 @media (max-width:576px) {
-    .button1,.button2,.button3{
+    .button1,.button2,.button3,.search-button{
         display: none;
     }
 }
