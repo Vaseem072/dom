@@ -125,7 +125,7 @@ function changeImagesMovie(e,id){
     .then((res)=>res.json())
     .then(data=>{ 
       const len= data.posters.length;
-      for(let i=0;i<10;i++){
+      for(let i=0;i<8;i++){
         const poster=data.posters[i]
           const div=document.createElement('div')
         div.classList.add("imagediv")
@@ -169,7 +169,7 @@ function changeImagesTv(e,id){
     .then((res)=>res.json())
     .then(data=>{ 
      const len= data.backdrops.length;
-         for(let i=0;i<10;i++){
+         for(let i=0;i<8;i++){
           const poster=data.backdrops[i];
           const div=document.createElement('div')
         div.classList.add("imagediv")
@@ -207,9 +207,6 @@ function changeImage(e,id){
   
     .catch(error=>console.log(error))
 }
-
-
-let j=0
 function changeImageTv(e,id){
        const url=`https://api.themoviedb.org/3/tv/${id}/images?api_key=c5a20c861acf7bb8d9e987dcc7f1b558`
     fetch(url)
@@ -234,27 +231,27 @@ function changeImageTv(e,id){
   
     .catch(error=>console.log(error))
 }
-function clear(){
-    clearInterval(inid)
-}
+// function clear(){
+//     clearInterval(inid)
+// }
 
 
-async function fetchGenreMap(id) {
-  const url = `https://api.themoviedb.org/3/movie/1061474?append_to_response=videos&api_key=c5a20c861acf7bb8d9e987dcc7f1b558`;
-  //https://api.themoviedb.org/3/movie/506?append_to_response=videos&api_key=c5a20c861acf7bb8d9e987dcc7f1b558//for videos
+// async function fetchGenreMap(id) {
+//   const url = `https://api.themoviedb.org/3/movie/1061474?append_to_response=videos&api_key=c5a20c861acf7bb8d9e987dcc7f1b558`;
+//   //https://api.themoviedb.org/3/movie/506?append_to_response=videos&api_key=c5a20c861acf7bb8d9e987dcc7f1b558//for videos
 
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    // console.log(data.videos.results)
-   for(U of data.videos.results){
-    console.log(U.name,U.type,U.official,U.key)
-   }
+//   try {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     // console.log(data.videos.results)
+//    for(U of data.videos.results){
+//     console.log(U.name,U.type,U.official,U.key)
+//    }
    
-  } catch (error) {
-    console.log('Error fetching genre map:', error);
-  }
-}
+//   } catch (error) {
+//     console.log('Error fetching genre map:', error);
+//   }
+// }
 // fetchGenreMap();
 // let id=550  //start with 550
 

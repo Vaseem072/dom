@@ -76,8 +76,8 @@ text-align: center;
 
 }
 .imagediv {
-    width: 200px;
-    height: 250px;
+    width: 310px;
+    height: 400px;
    /* margin: 1px; */
    display: flex;
    /* border: 2px solid yellow; */
@@ -89,8 +89,8 @@ text-align: center;
 
 }
 .imagediv>img {
-    width: 200px;
-    height: 250px;
+    width: 310px;
+    height: 400px;
 }
 .moviediv>img {
     width: 280px;
