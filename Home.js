@@ -54,9 +54,9 @@ function fetchLatestSeries(){
 })
     .catch(error=>{console.log(error)})
 };
-setTimeout(()=>{
+// setTimeout(()=>{
 fetchLatestTrending();
-},200)
+// },2000)
 function displayData(data){
     mdiv.textContent=" ";
     const pagediv=document.createElement('div');
