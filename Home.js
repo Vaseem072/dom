@@ -1,5 +1,7 @@
+
 const homebtn=document.getElementById('homebtn').addEventListener("click",fetchLatestTrending)
 const mdiv=document.getElementById('container')
+fetchLatestTrending();
 const moviename=document.getElementById("movieName");
 const button=document.getElementById("btn");
 button.addEventListener("click",fetchData);
@@ -54,9 +56,6 @@ function fetchLatestSeries(){
 })
     .catch(error=>{console.log(error)})
 };
-// setTimeout(()=>{
-fetchLatestTrending();
-// },2000)
 function displayData(data){
     mdiv.textContent=" ";
     const pagediv=document.createElement('div');
@@ -72,7 +71,7 @@ function displayData(data){
             console.log(m.id,m.adult,m.name,m.first_air_date)
                
          movieImage.src= `https://image.tmdb.org/t/p/w780${m.poster_path}`
-         movieImage.alt="loading"
+         movieImage.alt="Page Not Available"
        h1.textContent=m.name;
        p.textContent=m.first_air_date;
          movieImage.addEventListener("mousemove",(e)=>{changeImageTv(e,m.id)})
