@@ -165,4 +165,5 @@ text-align: center;
 .search-button:hover {
     background: linear-gradient(to right, #005fa3, #008abf);
     transform: scale(1.05);
+    border-color: #646cff;
 }

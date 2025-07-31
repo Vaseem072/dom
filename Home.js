@@ -20,6 +20,7 @@ function fetchData(){
     .then((res)=>res.json())
     .then(data=>{  console.clear()
    displayData(data)
+  //  moviename.value=''
 })
     .catch(error=>{console.log(error)})
 }else{
@@ -28,7 +29,7 @@ function fetchData(){
 }
 function fetchLatestMovies(){
     mdiv.textContent=" ";
-    const url=`https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=c5a20c861acf7bb8d9e987dcc7f1b558`
+    const url=`https://api.themoviedb.org/3/discover/movie?with_original_language=hi&api_key=c5a20c861acf7bb8d9e987dcc7f1b558`
     fetch(url)
     .then((res)=>res.json())
     .then(data=>{console.clear()
