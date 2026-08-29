@@ -15,15 +15,21 @@
 
 
    // localStorage.setItem('vaseem', 1234);
-    const username = document.querySelector('input[type="text"]')
-   const password = document.querySelector('input[type="password"]')
+
+
+
+window.location.href="Home.html"
+
+
+//     const username = document.querySelector('input[type="text"]')
+//    const password = document.querySelector('input[type="password"]')
    
-   document.getElementById("singbtn").addEventListener("click",(e)=>{
-  if(username.value=="vaseem" && password.value==1234){
-     window.location.href="Home.html"
-   }
-   else{
-    alert("Your password is incorrect")
-   }
-   })
+//    document.getElementById("singbtn").addEventListener("click",(e)=>{
+//   if(username.value=="vaseem" && password.value==1234){
+//      window.location.href="Home.html"
+//    }
+//    else{
+//     alert("Your password is incorrect")
+//    }
+//    })
  
